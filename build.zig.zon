@@ -1,0 +1,15 @@
+.{
+    .name = .wren,
+    .version = "0.4.0",
+    .fingerprint = 0x325928bab8d0ddb1,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "test/zig_build.c",
+        "LICENSE",
+        "README.md",
+    },
+}

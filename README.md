@@ -44,6 +44,27 @@ If you like the sound of this, [let's get started][started]. You can even try
 it [in your browser][browser]! Excited? Well, come on and [get
 involved][contribute]!
 
+### Zig build (0.16)
+
+Run `zig build` to install the static C library and `wren.h` under `zig-out/`.
+Run `zig build test` for a C API smoke test. The build accepts the usual
+`-Dtarget` and `-Doptimize` options.
+
+To use this fork in another Zig project, add it to that project's
+`build.zig.zon` (for example, with `zig fetch --save <fork-url>`), then link
+the library from its `build.zig`:
+
+```zig
+const wren = b.dependency("wren", .{
+    .target = target,
+    .optimize = optimize,
+});
+exe.root_module.linkLibrary(wren.artifact("wren"));
+```
+
+This makes `#include "wren.h"` available to C sources in the executable.
+Wren's optional Meta and Random modules are included by default.
+
 [![Build Status](https://travis-ci.org/wren-lang/wren.svg?branch=main)](https://travis-ci.org/wren-lang/wren)
 
 [syntax]: http://wren.io/syntax.html

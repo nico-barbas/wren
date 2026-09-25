@@ -6,6 +6,8 @@
 Debug/
 Release/
 /build
+/zig-out
+/.zig-cache
 /.sass-cache
 *.pyc
 
